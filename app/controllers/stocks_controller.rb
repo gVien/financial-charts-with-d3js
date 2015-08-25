@@ -9,7 +9,7 @@ class StocksController < ApplicationController
     # default value of period is 30 days if it is left blanked
     params[:period] = 30 if params[:period] == ""
 
-    @stock = Stock.new(symbol: params[:symbol])
+    @stock = Stock.new(symbol: params[:symbol].upcase)
 
     if request.xhr?
       @stock.save

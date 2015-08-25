@@ -134,8 +134,22 @@ var newChart = function(data) {
     data: data,
     dataType: "JSON"
   }).done(function(data) {
-    buildChart(data);
+    if (data.length > 0) {
+      removeErrorMessage();
+      buildChart(data);
+    } else {
+      removeErrorMessage();
+      appendErrorMessage();
+    }
   });
+}
+
+var appendErrorMessage = function() {
+  $(".form-container").append("<p class='error'>That is not a valid stock symbol or period! You may try: GOOG, YHOO, TSLA, etc.</p>");
+}
+
+var removeErrorMessage = function() {
+  $(".error").remove();
 }
 
 
