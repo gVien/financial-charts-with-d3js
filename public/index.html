@@ -3,6 +3,8 @@
 <head>
 	<title>Playing with D3.js</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/d3.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -42,7 +44,7 @@ var svg = d3.select("body").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    
+
 
 
 d3.csv("table.csv", type, function(error, data) {
@@ -90,7 +92,7 @@ d3.csv("table.csv", type, function(error, data) {
     .data(data)
     .enter().append("rect")
     .attr("x", function(d) { return x(d.date); })
-    .attr("y", function(d) {return y(max(d.open, d.close));})     
+    .attr("y", function(d) {return y(max(d.open, d.close));})
     .attr("height", function(d) { return y(min(d.open, d.close))-y(max(d.open, d.close));})
     .attr("width", function(d) { return 0.5 * (width - 2*margin.top)/data.length; })
     .attr("stroke-width", 1)
@@ -103,7 +105,7 @@ d3.csv("table.csv", type, function(error, data) {
   .enter().append("line")
   .attr("class", "upper-stem")
   .attr("x1", function(d) { console.log("x: ", x(d.date)); return x(d.date) + 0.25 * (width - 2 * margin.right)/ data.length;})
-  .attr("x2", function(d) { return x(d.date) + 0.25 * (width - 2 * margin.right)/ data.length;})       
+  .attr("x2", function(d) { return x(d.date) + 0.25 * (width - 2 * margin.right)/ data.length;})
   .attr("y1", function(d) { return y(d.high);})
   .attr("y2", function(d) { return d.open >= d.close ? y(d.open) : y(d.close); })
   .attr("stroke", "black");
@@ -114,7 +116,7 @@ d3.csv("table.csv", type, function(error, data) {
   .enter().append("line")
   .attr("class", "lower-stem")
   .attr("x1", function(d) { console.log("x: ", x(d.date)); return x(d.date) + 0.25 * (width - 2 * margin.right)/ data.length;})
-  .attr("x2", function(d) { return x(d.date) + 0.25 * (width - 2 * margin.right)/ data.length;})       
+  .attr("x2", function(d) { return x(d.date) + 0.25 * (width - 2 * margin.right)/ data.length;})
   .attr("y1", function(d) { return d.open >= d.close ? y(d.close) : y(d.open);})
   .attr("y2", function(d) { return y(d.low); })
   .attr("stroke", "black");
@@ -138,8 +140,8 @@ function type(d) {
 
 // function to determine the maximum and minimum values
 function min(a, b){ return a < b ? a : b ; }
-		 		     
-function max(a, b){ return a > b ? a : b; }    
+
+function max(a, b){ return a > b ? a : b; }
 
 </script>
 </body>
