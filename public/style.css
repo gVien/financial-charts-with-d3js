@@ -41,3 +41,8 @@ p {
 .error {
   color: red;
 }
+
+.ajax-loader {
+  text-align: center;
+  margin-top: 7%;
+}

@@ -124,7 +124,7 @@ var addChart = function() {
     var data = $(this).serialize();
     newChart(data);
   });
-}
+};
 
 var newChart = function(data) {
   var form = $(".symbol-form");
@@ -132,24 +132,37 @@ var newChart = function(data) {
     url: form.attr("action"),
     method: form.attr("method"),
     data: data,
-    dataType: "JSON"
+    dataType: "JSON",
+    beforeSend: function() {
+      appendAjaxLoader();
+    }
   }).done(function(data) {
     if (data.length > 0) {
+      removeAjaxLoader();
       removeErrorMessage();
       buildChart(data);
     } else {
+      removeAjaxLoader();
       removeErrorMessage();
       appendErrorMessage();
     }
   });
-}
+};
 
 var appendErrorMessage = function() {
   $(".form-container").append("<p class='error'>That is not a valid stock symbol or period! You may try: GOOG, YHOO, TSLA, etc.</p>");
-}
+};
 
 var removeErrorMessage = function() {
   $(".error").remove();
+};
+
+var appendAjaxLoader = function() {
+  $(".form-container").append("<div class='ajax-loader'><img src='../ajax-loader.gif'></div>");
+}
+
+var removeAjaxLoader = function() {
+  $(".ajax-loader").remove();
 }
 
 
