@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stock Charts with D3.js</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/d3.js"></script>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+  <form class="pure-form symbol-form" action="/stocks" method="post">
+      <fieldset>
+
+          <input type="text" class="symbol" name="symbol" placeholder="Stock Symbol">
+          <input type="number" class="period" name="period" placeholder="Period">
+
+          <button type="submit" class="pure-button pure-button-primary">Search</button>
+      </fieldset>
+      <p> The default period is 30 days if it is left blank.</p>
+  </form>
+</div>
+
+<div class="chart-area">
+</div>
+
+</body>
+</html>
+

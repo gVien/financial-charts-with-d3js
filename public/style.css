@@ -1,0 +1,48 @@
+body {
+  font: 15px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  stroke: #000;
+}
+
+.line, path {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.chart-area, .form-container {
+  margin: 0 auto;
+  max-width: 50em;
+}
+
+.form-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+svg {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.error {
+  color: red;
+}
+
+.ajax-loader {
+  text-align: center;
+  margin-top: 7%;
+}
