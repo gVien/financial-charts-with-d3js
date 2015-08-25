@@ -10,17 +10,11 @@ class StocksController < ApplicationController
     params[:period] = 30 if params[:period] == ""
 
     @stock = Stock.new(symbol: params[:symbol])
-    p "*" * 100
-    p @stock
-    p "*" * 100
 
     if request.xhr?
       @stock.save
       @data = YahooFinanceDataCollector.get_price_data(@stock.symbol, params[:period].to_i)
-          p "*" * 100
-    p @data
-    p "*" * 100
-      # render json: @data
+      render json: @data
     end
   end
 end
