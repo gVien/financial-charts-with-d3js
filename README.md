@@ -53,7 +53,7 @@ In your terminal, type:
 
 After that you need to bundle install the required gems.
 
-`bundle install'
+`bundle install`
 
 
 
