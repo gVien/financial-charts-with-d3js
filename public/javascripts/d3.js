@@ -138,6 +138,7 @@ var newChart = function(data) {
     }
   }).done(function(data) {
     if (data.length > 0) {
+      emptyForms();
       removeAjaxLoader();
       removeErrorMessage();
       buildChart(data);
@@ -165,7 +166,10 @@ var removeAjaxLoader = function() {
   $(".ajax-loader").remove();
 }
 
-
+var emptyForms = function() {
+  $(".symbol").val("");
+  $(".period").val("");
+}
 $(document).ready(function() {
   addChart();
 });
