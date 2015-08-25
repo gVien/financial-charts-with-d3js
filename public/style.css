@@ -19,12 +19,16 @@ body {
   stroke-width: 1.5px;
 }
 
-
-/*.form-container {
+.chart-area, .form-container {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 50em;
 }
-.symbol-form {
-    margin: 0 auto;
-    padding: 10px;
-}*/
+
+.form-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+svg {
+  border: 1px solid #ddd;
+}
