@@ -10,7 +10,7 @@ var margin = {top: 20, right: 30, bottom: 80,  left: 100},
 var parseDate = d3.time.format("%Y-%m-%d").parse;
 
 var x = d3.time.scale()
-    .range([0, width]);
+    .range([5, width]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
@@ -51,7 +51,7 @@ function buildChart(data) {
   data = data.sort(function(d1, d2) { return d1.date - d2.date;})
 
   x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain([d3.min(data.map(function(datum) {return datum.low;})) - 3, d3.max(data.map(function(datum) {return datum.high;})) + 3] );
+  y.domain([d3.min(data.map(function(datum) {return datum.low;})) - 3, d3.max(data.map(function(datum) {return datum.high;})) + 5] );
 
   svg.append("g")
     .attr("class", "x axis")
@@ -114,6 +114,16 @@ function buildChart(data) {
     // svg.select("g.y.axis").call(yAxis);
     svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
   }
+
+  // add chart title
+  svg.append("text")
+    .data(data)
+    .attr("x", width / 2)
+    .attr("y", margin.top / 2 - 5)
+    .attr("text-anchor", "middle")
+    .style("fill", "blue")
+    .style("text-decoration", "underline")
+    .text("HISTORICAL PRICE FOR " + data[0].symbol);
 }
 
 
@@ -160,16 +170,17 @@ var removeErrorMessage = function() {
 
 var appendAjaxLoader = function() {
   $(".form-container").append("<div class='ajax-loader'><img src='../ajax-loader.gif'></div>");
-}
+};
 
 var removeAjaxLoader = function() {
   $(".ajax-loader").remove();
-}
+};
 
 var emptyForms = function() {
   $(".symbol").val("");
   $(".period").val("");
-}
+};
+
 $(document).ready(function() {
   addChart();
 });
