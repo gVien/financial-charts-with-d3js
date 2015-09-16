@@ -13,10 +13,11 @@
 <body>
 
 <div class="form-container">
+  <p> Search over 38,000+ stocks and ETFs! </p>
   <form class="pure-form symbol-form" action="/stocks" method="post">
       <fieldset>
 
-          <input type="text" class="symbol" name="symbol" placeholder="Stock Symbol">
+          <input type="text" class="symbol" id="autocomplete" name="symbol" placeholder="Search for a Stock Symbol or Company's Name">
           <input type="number" class="period" name="period" placeholder="Period">
 
           <button type="submit" class="pure-button pure-button-primary">Search</button>

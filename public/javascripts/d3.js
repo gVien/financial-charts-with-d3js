@@ -181,7 +181,24 @@ var emptyForms = function() {
   $(".period").val("");
 };
 
+var autocompleteForm = function() {
+  $("#autocomplete").autocomplete({
+      minLength: 2,   // minimum length for autocomplete to activate
+      source: function(request, response) {
+        $.getJSON("/stocks", request, function(data) {
+
+        // filter accepts an array of string (can also be an array of objects). The term is an object with the term => keyword.
+        var results = $.ui.autocomplete.filter(data.stocks, request.term);
+
+        // truncate search result
+        response(results.slice(0, 15));
+        });
+      }
+  })
+}
+
 $(document).ready(function() {
+  autocompleteForm();
   addChart();
 });
 
