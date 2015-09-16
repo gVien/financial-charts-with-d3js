@@ -37,7 +37,7 @@ One of the tricky parts about D3.js (and SVG) was setting up the y-axis correctl
 
 I took on this project to learn a new technology (D3.js), so there are still a lot of features I have not added in my chart. For examples:
 
-1. Ability to zoom in chart (the zoom feature I incorporated is buggy)
+1. Ability to zoom in chart (current zoom is disabled due to bug)
 2. Ability to reset zoom
 3. Ability to add a trendlines
 4. Add all other financial indicators (MACD, RSI, etc.)
