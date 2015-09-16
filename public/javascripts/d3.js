@@ -30,19 +30,19 @@ function max(x, y){ return x > y ? x : y; }
 
 function buildChart(data) {
 
-  var zoom = d3.behavior.zoom()
-    .x(x)
-    .y(y)
-    .scaleExtent([1, 10])
-    .on("zoom", zoomed);
+  // var zoom = d3.behavior.zoom()
+  //   .x(x)
+  //   .y(y)
+  //   .scaleExtent([1, 10])
+  //   .on("zoom", zoomed);
 
   var svg = d3.select(".chart-area").append("svg")
       .attr("id", "chart")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      .call(zoom);
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      // .call(zoom);
 
   // parse date
   data.forEach(function(d) { d.date = parseDate(d.date); });
@@ -109,11 +109,11 @@ function buildChart(data) {
     .attr("y2", function(d) { return y(d.low); })
     .attr("stroke", "black");
 
-  function zoomed() {
-    // svg.select("g.x.axis").call(xAxis);
-    // svg.select("g.y.axis").call(yAxis);
-    svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-  }
+  // function zoomed() {
+  //   // svg.select("g.x.axis").call(xAxis);
+  //   // svg.select("g.y.axis").call(yAxis);
+  //   svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+  // }
 
   // add chart title
   svg.append("text")
