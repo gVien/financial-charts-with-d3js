@@ -11,12 +11,23 @@ Rails.application.load_tasks
 desc "Import stock symbols and names from csv file"
 task :import => [:environment] do
 
-  file = "db/companylist.csv"
+  # file = "db/companylist.csv" # this contains over 5k of stocks
+  stock_file = "db/yahoo-tickers-jan-2015-stock.csv"
+  etf_file = "db/yahoo-tickers-jan-2015-etf.csv"
 
-  CSV.foreach(file, :headers => true) do |row|
+  # add stocks
+  CSV.foreach(stock_file, :headers => true) do |row|
     Stock.create({
-      symbol: row[0].upcase,
-      company_name: row[1].upcase
+      symbol: row[0],
+      company_name: row[1]
+    })
+  end
+
+  # add etfs
+  CSV.foreach(etf_file, :headers => true) do |row|
+    Stock.create({
+      symbol: row[0],
+      company_name: row[1]
     })
   end
 
