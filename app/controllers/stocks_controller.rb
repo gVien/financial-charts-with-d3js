@@ -2,7 +2,8 @@ class StocksController < ApplicationController
   # include ApplicationHelper
 
   def index
-    redirect_to root_path
+    # redirect_to root_path
+    render json: Stock.all
   end
 
   def create
