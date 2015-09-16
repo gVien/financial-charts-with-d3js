@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825021114) do
+ActiveRecord::Schema.define(version: 20150916095556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "stocks", force: :cascade do |t|
-    t.string   "symbol",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "symbol",       null: false
+    t.string   "company_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  add_index "stocks", ["company_name"], name: "index_stocks_on_company_name", using: :btree
+  add_index "stocks", ["symbol"], name: "index_stocks_on_symbol", using: :btree
 
 end

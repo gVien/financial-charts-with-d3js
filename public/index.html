@@ -5,17 +5,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="/javascripts/d3.js"></script>
-
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 <div class="form-container">
+  <p> Search over 38,000+ stocks and ETFs! </p>
   <form class="pure-form symbol-form" action="/stocks" method="post">
       <fieldset>
 
-          <input type="text" class="symbol" name="symbol" placeholder="Stock Symbol">
+          <input type="text" class="symbol" id="autocomplete" name="symbol" placeholder="Search for a Stock Symbol or Company's Name">
           <input type="number" class="period" name="period" placeholder="Period">
 
           <button type="submit" class="pure-button pure-button-primary">Search</button>
