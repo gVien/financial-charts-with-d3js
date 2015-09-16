@@ -11,24 +11,33 @@ Rails.application.load_tasks
 desc "Import stock symbols and names from csv file"
 task :import => [:environment] do
 
-  # file = "db/companylist.csv" # this contains over 5k of stocks
-  stock_file = "db/yahoo-tickers-jan-2015-stock.csv"
-  etf_file = "db/yahoo-tickers-jan-2015-etf.csv"
+  file = "db/companylist.csv" # this contains over 5k of stocks
 
-  # add stocks
-  CSV.foreach(stock_file, :headers => true) do |row|
+  CSV.foreach(file, :headers => true) do |row|
     Stock.create({
       symbol: row[0],
       company_name: row[1]
     })
   end
 
-  # add etfs
-  CSV.foreach(etf_file, :headers => true) do |row|
-    Stock.create({
-      symbol: row[0],
-      company_name: row[1]
-    })
-  end
+  # # this is disabled for now since the free version of Heroku only allows up to 10,000 rows of data (data contains over 38k of rows)
+  # stock_file = "db/yahoo-tickers-jan-2015-stock.csv"
+  # etf_file = "db/yahoo-tickers-jan-2015-etf.csv"
+
+  # # add stocks
+  # CSV.foreach(stock_file, :headers => true) do |row|
+  #   Stock.create({
+  #     symbol: row[0],
+  #     company_name: row[1]
+  #   })
+  # end
+
+  # # add etfs
+  # CSV.foreach(etf_file, :headers => true) do |row|
+  #   Stock.create({
+  #     symbol: row[0],
+  #     company_name: row[1]
+  #   })
+  # end
 
 end
