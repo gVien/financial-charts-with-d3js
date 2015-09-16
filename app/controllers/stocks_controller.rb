@@ -3,7 +3,7 @@ class StocksController < ApplicationController
 
   def index
     # redirect_to root_path
-    render json: Stock.all
+    render json: {stocks: Stock.stock_autocomplete_array}
   end
 
   def create
