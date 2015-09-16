@@ -121,7 +121,7 @@ function buildChart(data) {
     .attr("x", width / 2)
     .attr("y", margin.top / 2 - 5)
     .attr("text-anchor", "middle")
-    .style("fill", "blue")
+    .style("fill", "black")
     .style("text-decoration", "underline")
     .text("HISTORICAL PRICE FOR " + data[0].symbol);
 }
