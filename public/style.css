@@ -50,3 +50,11 @@ p {
 .symbol {
   width: 50%;
 }
+
+.up {
+  color: #8DD750;
+}
+
+.down {
+  color: #FF0051;
+}
