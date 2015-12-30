@@ -58,3 +58,19 @@ p {
 .down {
   color: #FF0051;
 }
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .period, #autocomplete, button {
+    width: 90%;
+    margin: 10px auto auto auto;
+  }
+
+  button {
+    margin-left: 15px !important;
+  }
+
+  input {
+    font-size: 1em;
+  }
+}
